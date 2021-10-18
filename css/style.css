@@ -16,6 +16,9 @@ body {
     margin: 0;
     overflow: hidden;
 }
+.hidden {
+    display: none;
+}
 .desktop {
     position: fixed;
     top: 0;
@@ -36,7 +39,7 @@ body {
 
 }
 .desktop__icon {
-    height: 90px;
+    height: 80px;
     width: 60px;
     margin: 0;
     text-align: center;
@@ -65,8 +68,8 @@ body {
     max-height: 100%;
     background-color: white;
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 10%;
+    left: 10%;
     border: 4px solid #d4d0c8;
     box-shadow: #00000044 2px 2px 2px;
     resize: both;
@@ -93,13 +96,34 @@ body {
 }
 .window__header-control {
     margin-left: auto;
+    margin-right: 3px;
 }
 .window__header-control-button {
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     padding: 0;
-    margin: auto 0px;
-    
+    margin: auto 0px; 
+    border: none;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    box-shadow: #00000044 1px 1px 1px 1px;
+    cursor: pointer;
+}
+.window__header-control-button:hover {
+    box-shadow: none;
+    transform: translate(0.2px, 0.2px);
+}
+.close-button {
+    background: #d4d0c8 url('../img/close-button.png') center ;
+    background-size: contain;
+}
+.size-button {
+    background: #d4d0c8 url('../img/size-button.png') center;
+    background-size: contain;
+}
+.hide-button {
+    background: #d4d0c8 url('../img/hide-button.png') center;
+    background-size: contain;
 }
 
 
@@ -135,4 +159,15 @@ body {
 .bottom-bar__start-button:active {
     box-shadow: none;
     transform: translate(2px, 2px);
+}
+
+
+
+
+
+.fullscreen {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }

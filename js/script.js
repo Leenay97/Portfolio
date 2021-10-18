@@ -30,6 +30,15 @@
     
     });
 });*/
-$(function(){
-    
-})
+$(function () {
+    $('.close-button').on('click', function () {
+        $(this).parents('.window').hide();
+    });
+    $('.size-button').on('click', function () {
+        $(this).parents('.window').toggleClass('fullscreen');
+    });
+$('.projects-icon').on('click', function () {
+    $('.projects-window').show();
+});
+
+});
