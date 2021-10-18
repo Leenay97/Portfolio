@@ -1,8 +1,12 @@
+* {
+    box-sizing: border-box;
+}
 html {
     color: #fff;
     font-family: 'tahoma', sans-serif;
     letter-spacing: 2px;
     font-size: 20px;
+    overflow: hidden;
 }
 body {
     background-color: black;
@@ -10,6 +14,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 .desktop {
     position: fixed;
@@ -18,17 +23,30 @@ body {
     width: 100%;
     height: 100%;
     background-color: #396ea5;
+    
+}
+.desktop__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 70px;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+
 }
 .desktop__icon {
-    padding: 20px;
-    height: 900px;
-    width: 70px;
+    height: 90px;
+    width: 60px;
     margin: 0;
     text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    
 }
 .desktop__icon-image {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     text-align: center;
 }
 .desktop__icon-name {
@@ -37,6 +55,53 @@ body {
     text-align: center;
     text-shadow: black 2px 2px 2px;
 }
+
+.window {
+    height: 70%;
+    width: 70%;
+    min-width: 320px;
+    min-height: 320px;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border: 4px solid #d4d0c8;
+    box-shadow: #00000044 2px 2px 2px;
+    resize: both;
+    overflow:auto; 
+}
+.window__header {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(90deg, #0b256a, #a6caf0);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border: 3px solid #d4d0c8;
+    border-collapse: collapse;
+}
+.window__header-icon {
+    height: 24px;
+    width: 24px;
+    margin: 0 5px;
+}
+.window__header-icon img{
+    height: 24px;
+    width: 24px;
+}
+.window__header-control {
+    margin-left: auto;
+}
+.window__header-control-button {
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    margin: auto 0px;
+    
+}
+
 
 .bottom-bar {
     position: fixed;
@@ -48,4 +113,26 @@ body {
     box-shadow: #00000044 -2px -2px 5px 1px;
     border: 3px solid #00000044;
 
+}
+.bottom-bar__start-button {
+    background: url('../img/start-button.png') transparent no-repeat ;
+    background-position-y: 3px;
+    background-position-x: 3px;
+    height: 30px;
+    width: 70px;
+    margin: 3px 0;
+    text-align: right;
+    box-shadow: #00000044 2px 2px 2px;
+    border: 0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+
+}
+.bottom-bar__start-button:hover {
+    box-shadow: #00000044 1px 1px 1px;
+    transform: translate(1px, 1px);
+}
+.bottom-bar__start-button:active {
+    box-shadow: none;
+    transform: translate(2px, 2px);
 }
