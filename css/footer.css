@@ -3,27 +3,30 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    height: 40px;
+    height: 38px;
     bottom: 0;
     width: 100%;
-    background-color: #d4d0c8;
+    background-color: #c3c3c3;
     z-index: 50;
-    box-shadow: #00000044 -2px -2px 5px 1px;
-    border: 2px solid #00000044;
+    box-shadow: #c3c3c3 0px -1px 1px;
+    border-top: 2px solid #fff;
     padding: 0 10px 0 5px;
 
 }
 .bottom-bar__start-button {
-    background: url('../img/start-button.png') transparent no-repeat ;
-    background-position-y: 3px;
-    background-position-x: 3px;
+    background: url('../img/start-button2.png') transparent no-repeat ;
+    background-position: center;
+    background-size: cover;
     height: 30px;
-    width: 70px;
+    width: 78px;
+    min-width: 78px;
     text-align: right;
-    box-shadow: #00000044 2px 2px 2px;
+    box-shadow: #000000 2px 2px 1px;
     border: 0;
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
+    font-weight: bold;
+    font-size: 14px;
 
 }
 .bottom-bar__start-button:hover {
@@ -40,13 +43,12 @@
     width: 120px;
     margin-left: auto;
     color: #000;
-    font-size: 12px;
-    letter-spacing: 0;
+    font-size: 13px;
     text-align: center;
-    border-top: 1px solid #00000044;
-    border-left: 1px solid #00000044;
-    border-right: 1px solid #ffffffaa;
-    border-bottom: 1px solid #ffffffaa;
+    border-top: 2px solid #828282;
+    border-left: 2px solid #828282;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     align-content: center;
 }
 .bottom-container {
@@ -54,7 +56,8 @@
 }
 .bottom-layer {
     height: 30px;
-    width: 120px;
+    max-width: 120px;
+    min-width: 30px;
     padding: 0 35px;
     text-align: left;
     box-shadow: #00000044 2px 2px 2px;
@@ -62,7 +65,12 @@
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
     font-size: 14px;
-    background-color: #d4d0c8;
+    background-color: #c3c3c3;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: center;
+    background-size: 20px;
+    
 }
 .bottom-layer:hover {
     box-shadow: #00000044 1px 1px 2px;
@@ -70,8 +78,8 @@
 }
 .projects-layer {
     background-image: url('../img/folder-icon.png');
-    background-repeat: no-repeat;
-    background-position-x: 5px;
-    background-position-y: center;
-    background-size: 20px;
+}
+
+.about-layer {
+    background-image: url('../img/txt-icon.png');
 }

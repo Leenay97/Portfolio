@@ -15,7 +15,7 @@ $(function () {
         var trigger = document.querySelector(windowName);
         var layer = document.querySelector(layerName);
         console.log(trigger);
-        $(trigger).removeClass('hidden');
+        $(trigger).toggleClass('hidden');
 
     };
 
@@ -45,9 +45,13 @@ $(function () {
     $('.explorer-icon').on('click', function () {
         $('.explorer-window').removeClass('hidden');
     });
+    $('.about-icon').on('click', function () {
+        $('.about-window').removeClass('hidden');
+        $('.about-layer').removeClass('hidden');
+    });
 
+    setInterval(function(){
     var date = new Date;
-    console.log(date);
     var minutes = date.getMinutes();
     var hours = date.getHours();
     var day = date.getDate();
@@ -67,7 +71,10 @@ $(function () {
     };
     month++
     dateTime = hours + ':' + minutes + '<br>' + day + '.' + month + '.' + year;
-    $('.bottom-bar__time').append(dateTime);
+    document.querySelector('.bottom-bar__time').innerHTML = dateTime;
+    
+    }, 300);
+
 
     $('.bottom-bar__start-button').on('click', function () {
         $('.start-menu').toggleClass('hidden');
@@ -80,18 +87,25 @@ $(function () {
     });
 
 
-    $('.projects-window').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
+    $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
         windowHide('projects');
     });
-
-
-
-    $('.projects-window').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
+    $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
         windowClose('projects');
     });
-
     $('.projects-layer').on('click', function () {
         layerClick('projects');
     });
+
+    $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
+        windowHide('about');
+    });
+    $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
+        windowClose('about');
+    });
+    $('.about-layer').on('click', function () {
+        layerClick('about');
+    });
+
 
 });
