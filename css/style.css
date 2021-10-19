@@ -2,9 +2,7 @@
     box-sizing: border-box;
 }
 html {
-    color: #fff;
     font-family: 'tahoma', sans-serif;
-    letter-spacing: 2px;
     font-size: 20px;
     overflow: hidden;
 }
@@ -39,7 +37,7 @@ body {
 
 }
 .desktop__icon {
-    height: 80px;
+    height: 60px;
     width: 60px;
     margin: 0;
     text-align: center;
@@ -57,6 +55,7 @@ body {
     font-size: 14px;
     text-align: center;
     text-shadow: black 2px 2px 2px;
+    color: #fff;
 }
 
 .window {
@@ -84,6 +83,7 @@ body {
     font-size: 14px;
     border: 3px solid #d4d0c8;
     border-collapse: collapse;
+    color: #fff;
 }
 .window__header-icon {
     height: 24px;
@@ -114,6 +114,10 @@ body {
     box-shadow: none;
     transform: translate(0.2px, 0.2px);
 }
+
+.window__workspace {
+    padding: 20px;
+}
 .close-button {
     background: #d4d0c8 url('../img/close-button.png') center ;
     background-size: contain;
@@ -131,6 +135,7 @@ body {
 .bottom-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     height: 40px;
     bottom: 0;
@@ -163,9 +168,56 @@ body {
     transform: translate(2px, 2px);
 }
 
+.bottom-bar__time {
+    height: 30px;
+    width: 120px;
+    margin-left: auto;
+    color: #000;
+    font-size: 11px;
+    letter-spacing: 0;
+    text-align: center;
+    border-top: 1px solid #00000044;
+    border-left: 1px solid #00000044;
+    border-right: 1px solid #ffffffaa;
+    border-bottom: 1px solid #ffffffaa;
+    align-content: center;
+}
 
+.start-menu {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    height: 50%;
+    min-width: 320px;
+    width: 500px;
+    min-height: 400px;
+    background-color: #d4d0c8;
+    border-top: 2px solid #ffffffaa;
+    border-left: 2px solid #ffffffaa;
+    border-right: 2px solid #00000044;
+    border-bottom: 2px solid #00000044;
+    box-shadow: #00000044 1px 1px 2px;
+    z-index: 100;
+}
 
-
+.explorer__nav {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    background-color:#d4d0c8;
+    align-items: center;
+    border-top: 2px solid #00000044;
+    border-left: 2px solid #00000044;
+    border-right: 2px solid #ffffffaa;
+    border-bottom: 2px solid #ffffffaa;
+    padding: 3px;
+}
+.explorer__nav-adress {
+    font-size: 14px;
+    color: black;
+    margin: 5px;
+    background-color:#d4d0c3;   
+}
 
 .fullscreen {
     width: 100% !important;

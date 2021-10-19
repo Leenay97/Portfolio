@@ -37,8 +37,50 @@ $(function () {
     $('.size-button').on('click', function () {
         $(this).parents('.window').toggleClass('fullscreen');
     });
-$('.projects-icon').on('click', function () {
-    $('.projects-window').show();
-});
+    $('.hide-button').on('click', function () {
+        $(this).parents('.window').hide();
+    });
 
+    $('.projects-icon').on('click', function () {
+        $('.projects-window').show();
+    });
+    $('.skills-icon').on('click', function () {
+        $('.skills-window').show();
+    });
+    $('.explorer-icon').on('click', function () {
+        $('.explorer-window').show();
+    });
+
+    var date = new Date;
+    console.log(date);
+    var minutes = date.getMinutes();
+    var hours = date.getHours();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    if (date.getMinutes() < 10) {
+        minutes = '0' + minutes;
+    };
+    if (date.getHours() < 10) {
+        hours = '0' + hours;
+    };
+    if (date.getMonth() < 10) {
+        month = '0' + month;
+    };
+    if (date.getDate() < 10) {
+        day = '0' + day;
+    };
+    month++
+    dateTime = hours + ':' + minutes + '<br>' + day + '.' + month + '.' + year;
+    $('.bottom-bar__time').append(dateTime);
+
+    $('.bottom-bar__start-button').on('click', function(){
+        $('.start-menu').toggleClass('hidden');
+    });
+    $('.desktop').on('click', function(){
+        $('.start-menu').addClass('hidden');
+    });
+    $('.window').on('click', function(){
+        $('.start-menu').addClass('hidden');
+    });
 });
