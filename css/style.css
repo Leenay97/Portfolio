@@ -73,7 +73,6 @@ body {
     transform: translate(-50%, -50%);
     border: 2px solid #d4d0c8;
     box-shadow: #00000044 2px 2px 2px;
-    overflow:auto; 
 }
 .window__header {
     width: 100%;

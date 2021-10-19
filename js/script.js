@@ -40,10 +40,10 @@ $(function () {
         $('.projects-layer').removeClass('hidden');
     });
     $('.skills-icon').on('click', function () {
-        $('.skills-window').show();
+        $('.skills-window').removeClass('hidden');
     });
     $('.explorer-icon').on('click', function () {
-        $('.explorer-window').show();
+        $('.explorer-window').removeClass('hidden');
     });
 
     var date = new Date;
