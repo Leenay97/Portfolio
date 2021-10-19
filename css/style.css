@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 html {
-    font-family: 'tahoma', sans-serif;
+    font-family: Tahoma, sans-serif;
     font-size: 20px;
     overflow: hidden;
 }
@@ -71,7 +71,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 4px solid #d4d0c8;
+    border: 2px solid #d4d0c8;
     box-shadow: #00000044 2px 2px 2px;
     overflow:auto; 
 }
@@ -220,16 +220,30 @@ body {
 .explorer__nav-buttons {
     min-width: 51px;
 }
-.button-left, .button-right {
+.explorer-button {
     height: 22px;
     width: 22px;
     border-radius: 13px;
+    background-position: center;
+    border:none;
+    box-shadow: #000000 1px 1px 2px;
+}
+.explorer-button:hover {
+    box-shadow: none;
+    transform: translate(1px, 1px);
+}
+.button-right {
+    background: url('../img/explorer-button-right.png');
+}
+.button-left {
+    background: url('../img/explorer-button-left.png')
 }
 .explorer__nav-adress {
     font-size: 14px;
     color: black;
     margin: 0 10px;
     height: 22px;
+    padding-left: 5px;
     background-color:#fff; 
     border-top: 3px solid #00000044;
     border-left: 3px solid #00000044;
@@ -246,6 +260,7 @@ body {
     border-right: 2px solid #00000044;
     border-bottom: 2px solid #00000044;
     box-shadow: #00000044 1px 1px 1px;
+    background: url('../img/reload-button.png') center;
 }
 .reload-button:hover {
     box-shadow: none;
