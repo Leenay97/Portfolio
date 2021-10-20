@@ -25,10 +25,18 @@ $(function () {
         $(trigger).removeClass('hidden');
     };
 
+    var layerAdd = function (name) {
+        var className = '.' + name + '-layer';
+        var layer = document.querySelector(className);
+        $('.bottom-container').append(layer);
+        $(layer).removeClass('hidden');
+    };
+
     $('.close-button').on('click', function () {
         $(this).parents('.window').addClass('hidden');
     });
     $('.size-button').on('click', function () {
+        $(this).toggleClass('size-button-active')
         $(this).parents('.window').toggleClass('fullscreen');
     });
     $('.hide-button').on('click', function () {
@@ -37,17 +45,18 @@ $(function () {
 
     $('.projects-icon').on('click', function () {
         $('.projects-window').removeClass('hidden');
-        $('.projects-layer').removeClass('hidden');
+        layerAdd('projects');
     });
     $('.skills-icon').on('click', function () {
         $('.skills-window').removeClass('hidden');
+        layerAdd('skills');
     });
     $('.explorer-icon').on('click', function () {
         $('.explorer-window').removeClass('hidden');
     });
     $('.about-icon').on('click', function () {
         $('.about-window').removeClass('hidden');
-        $('.about-layer').removeClass('hidden');
+        layerAdd('about');
     });
 
     setInterval(function(){
@@ -89,23 +98,42 @@ $(function () {
 
     $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
         windowHide('projects');
+        $('.projects-layer').removeClass('active');
     });
     $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
         windowClose('projects');
+        $('.projects-layer').addClass('active');
     });
     $('.projects-layer').on('click', function () {
         layerClick('projects');
+        $('.projects-layer').toggleClass('active');
     });
 
     $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
         windowHide('about');
+        $('.about-layer').removeClass('active');
     });
     $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
         windowClose('about');
+        $('.about-layer').addClass('active');
     });
     $('.about-layer').on('click', function () {
         layerClick('about');
+        $('.about-layer').toggleClass('active');
     });
 
+
+    $('.skills-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
+        windowHide('skills');
+        $('.skills-layer').removeClass('active');
+    });
+    $('.skills-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
+        windowClose('skills');
+        $('.skills-layer').addClass('active');
+    });
+    $('.skills-layer').on('click', function () {
+        layerClick('skills');
+        $('.skills-layer').toggleClass('active');
+    });
 
 });
