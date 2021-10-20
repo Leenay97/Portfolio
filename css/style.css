@@ -278,7 +278,7 @@ a {
 }
 
 .size-button-active {
-    background-image: url('../img/size-button-active.png')
+    background-image: url('../img/size-button-active.png');
 }
 
 .fullscreen {
