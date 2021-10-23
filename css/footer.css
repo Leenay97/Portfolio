@@ -11,6 +11,7 @@
     box-shadow: #c3c3c3 0px -1px 1px;
     border-top: 2px solid #fff;
     padding: 0 10px 0 5px;
+    min-width: 320px;
 
 }
 .bottom-bar__start-button {
@@ -42,11 +43,12 @@
 
 .bottom-bar__time {
     height: 30px;
-    width: 120px;
+    min-width: 60px;
     margin-left: auto;
     color: #000;
     font-size: 13px;
     text-align: center;
+    padding-top: 8px;
     border-top: 2px solid #828282;
     border-left: 2px solid #828282;
     border-right: 2px solid #fff;
@@ -55,13 +57,20 @@
 }
 .bottom-container {
     margin: auto 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
 }
-
+.bottom-container::-webkit-scrollbar {
+    display: none;
+}
 .bottom-layer {
     height: 30px;
     max-width: 120px;
     min-width: 30px;
     padding: 0 35px;
+    overflow: hidden;
     text-align: left;
     border: 0;
     border-top: 2px solid #fff;
@@ -93,12 +102,6 @@
 .skills-layer {
     background-image: url('../img/folder-icon.png');
     margin-left: 5px;
-}
-.about-layer .active {
-    background-image: url('../img/txt-icon.png');
-}
-.skills-layer .active {
-    background-image: url('../img/folder-icon.png');
 }
 
 

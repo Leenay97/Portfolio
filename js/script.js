@@ -79,7 +79,7 @@ $(function () {
         day = '0' + day;
     };
     month++
-    dateTime = hours + ':' + minutes + '<br>' + day + '.' + month + '.' + year;
+    dateTime = hours + ':' + minutes;
     document.querySelector('.bottom-bar__time').innerHTML = dateTime;
     
     }, 300);
@@ -87,6 +87,7 @@ $(function () {
 
     $('.bottom-bar__start-button').on('click', function () {
         $('.start-menu').toggleClass('hidden');
+        $(this).toggleClass('active');
     });
     $('.desktop').on('click', function () {
         $('.start-menu').addClass('hidden');
