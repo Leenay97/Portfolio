@@ -73,16 +73,12 @@
 }
 .bottom-container {
     margin: auto 0;
-    margin-right: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    gap: 5px;
 }
-.bottom-container:last-child {
-    margin-right: 5px;
-}
+
 .bottom-container::-webkit-scrollbar {
     display: none;
 }
@@ -90,6 +86,7 @@
     width: 130px;
     min-width: 130px;
     height: 30px;
+    margin-right: 5px;
     padding: 0 0 0 33px;
     overflow: hidden;
     text-align: left;
@@ -115,6 +112,10 @@
     padding: 0 10px 0 0;
     overflow: hidden;
 }
+.bottom-container:last-child {
+    margin-right: 0;
+}
+
 .projects-layer {
     background-image: url('../img/folder-icon.png');
 }
