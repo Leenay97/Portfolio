@@ -229,7 +229,7 @@ a {
 
 .start-menu {
     position: absolute;
-    bottom: 40px;
+    bottom: 0px;
     left: 0;
     height: 300px;
     width: 200px;

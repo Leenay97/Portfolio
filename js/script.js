@@ -1,5 +1,3 @@
-
-
 $(function () {
 
     var windowClose = function (name) {
@@ -16,7 +14,7 @@ $(function () {
         var layer = document.querySelector(layerName);
         console.log(trigger);
         $(trigger).toggleClass('hidden');
-
+        $(layer).toggleClass('active');
     };
 
     var windowHide = function (name) {
@@ -30,6 +28,13 @@ $(function () {
         var layer = document.querySelector(className);
         $('.bottom-container').append(layer);
         $(layer).removeClass('hidden');
+    };
+
+    var front = function (name) {
+        var className = '.' + name + '-window';
+        var layerName = '.' + name + '-layer';
+        $('.window').css('z-index', 1);
+        $(className).css('z-index', 2);
     };
 
     $('.close-button').on('click', function () {
@@ -46,17 +51,21 @@ $(function () {
     $('.projects-icon').on('click', function () {
         $('.projects-window').removeClass('hidden');
         layerAdd('projects');
+        front('projects');
     });
     $('.skills-icon').on('click', function () {
         $('.skills-window').removeClass('hidden');
         layerAdd('skills');
+        front('skills');
     });
     $('.explorer-icon').on('click', function () {
         $('.explorer-window').removeClass('hidden');
+        front('explorer');
     });
     $('.about-icon').on('click', function () {
         $('.about-window').removeClass('hidden');
         layerAdd('about');
+        front('about');
     });
 
     setInterval(function(){
@@ -91,6 +100,7 @@ $(function () {
     });
     $('.desktop').on('click', function () {
         $('.start-menu').addClass('hidden');
+        $('.bottom-bar__start-button').removeClass('active');
     });
     $('.window').on('click', function () {
         $('.start-menu').addClass('hidden');
@@ -107,7 +117,7 @@ $(function () {
     });
     $('.projects-layer').on('click', function () {
         layerClick('projects');
-        $('.projects-layer').toggleClass('active');
+        front('projects');
     });
 
     $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
@@ -120,7 +130,7 @@ $(function () {
     });
     $('.about-layer').on('click', function () {
         layerClick('about');
-        $('.about-layer').toggleClass('active');
+        front('about');
     });
 
 
@@ -134,7 +144,7 @@ $(function () {
     });
     $('.skills-layer').on('click', function () {
         layerClick('skills');
-        $('.skills-layer').toggleClass('active');
+        front('skills');
     });
 
 });

@@ -3,9 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="css/folder.css">
-    <link rel="stylesheet" href="css/explorer.css">
+    
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/explorer.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,230 +37,231 @@
                     <div class="desktop__icon-name">About me.txt</div>
                 </div>
             </div>
-        </div>
-        <div class="window projects-window hidden">
-            <div class="window__wrapper">
-                <div class="window__header">
-                    <div class="window__header-icon">
-                        <img src="img/folder-icon.png">
+            <div class="window projects-window hidden">
+                <div class="window__wrapper">
+                    <div class="window__header">
+                        <div class="window__header-icon">
+                            <img src="img/folder-icon.png">
+                        </div>
+                        <div class="window__header-name">
+                            Projects
+                        </div>
+                        <div class="window__header-control">
+                            <button class="window__header-control-button hide-button"></button>
+                            <button class="window__header-control-button size-button"></button>
+                            <button class="window__header-control-button close-button"></button>
+                        </div>
                     </div>
-                    <div class="window__header-name">
-                        Projects
+                    <div class="window__toolbar">
+                        <div class="window__toolbar-button"><u>F</u>ile</div>
+                        <div class="window__toolbar-button"><u>E</u>dit</div>
+                        <div class="window__toolbar-button"><u>V</u>iew</div>
+                        <div class="window__toolbar-button"><u>H</u>elp</div>
                     </div>
-                    <div class="window__header-control">
-                        <button class="window__header-control-button hide-button"></button>
-                        <button class="window__header-control-button size-button"></button>
-                        <button class="window__header-control-button close-button"></button>
-                    </div>
-                </div>
-                <div class="window__toolbar">
-                    <div class="window__toolbar-button"><u>F</u>ile</div>
-                    <div class="window__toolbar-button"><u>E</u>dit</div>
-                    <div class="window__toolbar-button"><u>V</u>iew</div>
-                    <div class="window__toolbar-button"><u>H</u>elp</div>
-                </div>
 
-                <div class="window__workspace">
-                    <a href="http://wakaranainihongo.herokuapp.com/" target="_blank">
+                    <div class="window__workspace">
+                        <a href="http://wakaranainihongo.herokuapp.com/" target="_blank">
+                            <div class="folder__icon">
+                                <div class="folder__icon-image">
+                                    <img src="img/logo-waka.png">
+                                    <img class="label" src="img/yarlik.png">
+                                </div>
+                                <div class="folder__icon-name">
+                                    Wakaranai Nihongo
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="window__footer">
+                        <div class="window__footer-objects">
+                            1 object(s)
+                        </div>
+                        <div class="window__footer-size">
+                            12.34KB
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window skills-window hidden">
+                <div class="window__wrapper">
+                    <div class="window__header">
+                        <div class="window__header-icon">
+                            <img src="img/folder-icon.png">
+                        </div>
+                        <div class="window__header-name">
+                            Skills
+                        </div>
+                        <div class="window__header-control">
+                            <button class="window__header-control-button hide-button"></button>
+                            <button class="window__header-control-button size-button"></button>
+                            <button class="window__header-control-button close-button"></button>
+                        </div>
+                    </div>
+                    <div class="window__toolbar">
+                        <div class="window__toolbar-button"><u>F</u>ile</div>
+                        <div class="window__toolbar-button"><u>E</u>dit</div>
+                        <div class="window__toolbar-button"><u>V</u>iew</div>
+                        <div class="window__toolbar-button"><u>H</u>elp</div>
+                    </div>
+                    <div class="window__workspace">
                         <div class="folder__icon">
                             <div class="folder__icon-image">
-                                <img src="img/logo-waka.png">
+                                <img src="img/photoshop-icon.png">
                                 <img class="label" src="img/yarlik.png">
                             </div>
                             <div class="folder__icon-name">
-                                Wakaranai Nihongo
+                                Adobe Photoshop
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="window__footer">
-                    <div class="window__footer-objects">
-                        1 object(s)
+                        <div class="folder__icon">
+                            <div class="folder__icon-image">
+                                <img src="img/githb.png">
+                                <img class="label" src="img/yarlik.png">
+                            </div>
+                            <div class="folder__icon-name">
+                                Github
+                            </div>
+                        </div>
+                        <div class="folder__icon">
+                            <div class="folder__icon-image">
+                                <img src="img/aseprite.png">
+                                <img class="label" src="img/yarlik.png">
+                            </div>
+                            <div class="folder__icon-name">
+                                Aseprite
+                            </div>
+                        </div>
                     </div>
-                    <div class="window__footer-size">
-                        12.34KB
+                    <div class="window__footer">
+                        <div class="window__footer-objects">
+
+                        </div>
+                        <div class="window__footer-size">
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="window skills-window hidden">
-            <div class="window__wrapper">
-                <div class="window__header">
-                    <div class="window__header-icon">
-                        <img src="img/folder-icon.png">
+            <div class="window explorer-window hidden">
+                <div class="window__wrapper">
+                    <div class="window__header">
+                        <div class="window__header-icon">
+                            <img src="img/explorer-icon.png">
+                        </div>
+                        <div class="window__header-name">
+                            Internet
+                        </div>
+                        <div class="window__header-control">
+                            <button class="window__header-control-button hide-button"></button>
+                            <button class="window__header-control-button size-button"></button>
+                            <button class="window__header-control-button close-button"></button>
+                        </div>
                     </div>
-                    <div class="window__header-name">
-                        Skills
+                    <div class="window__toolbar">
+                        <div class="window__toolbar-button"><u>F</u>ile</div>
+                        <div class="window__toolbar-button"><u>E</u>dit</div>
+                        <div class="window__toolbar-button"><u>V</u>iew</div>
+                        <div class="window__toolbar-button"><u>G</u>o</div>
+                        <div class="window__toolbar-button"><u>F</u>avorites</div>
+                        <div class="window__toolbar-button"><u>H</u>elp</div>
                     </div>
-                    <div class="window__header-control">
-                        <button class="window__header-control-button hide-button"></button>
-                        <button class="window__header-control-button size-button"></button>
-                        <button class="window__header-control-button close-button"></button>
+                    <div class="explorer__toolbar">
+                        <div class="explorer__upper">
+
+                            <div class="explorer__nav">
+                                <div class="explorer__separator upper"></div>
+                                <div class="explorer__separator upper"></div>
+                                <div class="explorer-window__button">
+                                    <div class="explorer-window__button_icon backforward">
+                                        <img src="./img/explorer-button-left.png">
+                                    </div>
+                                    <div class="explorer-window__button_name">
+                                        Back
+                                    </div>
+                                </div>
+                                <div class="explorer-window__button">
+                                    <div class="explorer-window__button_icon backforward">
+                                        <img src="./img/explorer-button-right.png">
+                                    </div>
+                                    <div class="explorer-window__button_name">
+                                        Forward
+                                    </div>
+                                </div>
+                                <div class="explorer-window__button">
+                                    <div class="explorer-window__button_icon">
+                                        <img src="./img/explorer-stop.png">
+                                    </div>
+                                    <div class="explorer-window__button_name">
+                                        Stop
+                                    </div>
+                                </div>
+                                <div class="explorer-window__button">
+                                    <div class="explorer-window__button_icon">
+                                        <img src="./img/explorer-refresh.png">
+                                    </div>
+                                    <div class="explorer-window__button_name" style="color: black;">
+                                        Refresh
+                                    </div>
+                                </div>
+                                <div class="explorer-window__button"></div>
+                            </div>
+                            <div class="explorer__logo">
+                                <img src="./img/explorer-logo.png">
+                            </div>
+                        </div>
+                        <div class="explorer__adress">
+                            <div class="explorer__separator lower"></div>
+                            <div class="explorer__separator lower"></div>
+                            <div class="explorer__adress-name">Adress</div>
+                            <div class="explorer__adress_line">https://portfolio.com</div>
+
+                        </div>
+                    </div>
+                    <div class="window__workspace explorer__workspace">
+                        <div class="portfolio__container">
+                            <iframe src="iframes/explorer.html">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
-                <div class="window__toolbar">
-                    <div class="window__toolbar-button"><u>F</u>ile</div>
-                    <div class="window__toolbar-button"><u>E</u>dit</div>
-                    <div class="window__toolbar-button"><u>V</u>iew</div>
-                    <div class="window__toolbar-button"><u>H</u>elp</div>
-                </div>
-                <div class="window__workspace">
-                    <div class="folder__icon">
-                        <div class="folder__icon-image">
-                            <img src="img/photoshop-icon.png">
-                            <img class="label" src="img/yarlik.png">
-                        </div>
-                        <div class="folder__icon-name">
-                            Adobe Photoshop
-                        </div>
-                    </div>
-                    <div class="folder__icon">
-                        <div class="folder__icon-image">
-                            <img src="img/githb.png">
-                            <img class="label" src="img/yarlik.png">
-                        </div>
-                        <div class="folder__icon-name">
-                            Github
-                        </div>
-                    </div>
-                    <div class="folder__icon">
-                        <div class="folder__icon-image">
-                            <img src="img/aseprite.png">
-                            <img class="label" src="img/yarlik.png">
-                        </div>
-                        <div class="folder__icon-name">
-                            Aseprite
-                        </div>
-                    </div>
-                </div>
-                <div class="window__footer">
-                    <div class="window__footer-objects">
 
-                    </div>
-                    <div class="window__footer-size">
+            </div>
 
+
+            <div class="window about-window hidden">
+                <div class="window__wrapper">
+                    <div class="window__header">
+                        <div class="window__header-icon">
+                            <img src="img/txt-icon.png">
+                        </div>
+                        <div class="window__header-name">
+                            About me.txt - Notepad
+                        </div>
+                        <div class="window__header-control">
+                            <button class="window__header-control-button hide-button"></button>
+                            <button class="window__header-control-button size-button"></button>
+                            <button class="window__header-control-button close-button"></button>
+                        </div>
+                    </div>
+                    <div class="window__toolbar">
+                        <div class="window__toolbar-button"><u>F</u>ile</div>
+                        <div class="window__toolbar-button"><u>E</u>dit</div>
+                        <div class="window__toolbar-button"><u>S</u>earch</div>
+                        <div class="window__toolbar-button"><u>H</u>elp</div>
+                    </div>
+                    <div class="window__workspace">
+                        Hello!<br>
+                        I'm Aleksei Musin and I'll be glad to help you with your website!
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="window explorer-window hidden">
-            <div class="window__wrapper">
-                <div class="window__header">
-                    <div class="window__header-icon">
-                        <img src="img/explorer-icon.png">
-                    </div>
-                    <div class="window__header-name">
-                        Internet
-                    </div>
-                    <div class="window__header-control">
-                        <button class="window__header-control-button hide-button"></button>
-                        <button class="window__header-control-button size-button"></button>
-                        <button class="window__header-control-button close-button"></button>
-                    </div>
-                </div>
-                <div class="window__toolbar">
-                    <div class="window__toolbar-button"><u>F</u>ile</div>
-                    <div class="window__toolbar-button"><u>E</u>dit</div>
-                    <div class="window__toolbar-button"><u>V</u>iew</div>
-                    <div class="window__toolbar-button"><u>G</u>o</div>
-                    <div class="window__toolbar-button"><u>F</u>avorites</div>
-                    <div class="window__toolbar-button"><u>H</u>elp</div>
-                </div>
-                <div class="explorer__toolbar">
-                    <div class="explorer__upper">
+            <div class="start-menu hidden">
 
-                        <div class="explorer__nav">
-                            <div class="explorer__separator upper"></div>
-                            <div class="explorer__separator upper"></div>
-                            <div class="explorer-window__button">
-                                <div class="explorer-window__button_icon backforward">
-                                    <img src="./img/explorer-button-left.png">
-                                </div>
-                                <div class="explorer-window__button_name">
-                                    Back
-                                </div>
-                            </div>
-                            <div class="explorer-window__button">
-                                <div class="explorer-window__button_icon backforward">
-                                    <img src="./img/explorer-button-right.png">
-                                </div>
-                                <div class="explorer-window__button_name">
-                                    Forward
-                                </div>
-                            </div>
-                            <div class="explorer-window__button">
-                                <div class="explorer-window__button_icon">
-                                    <img src="./img/explorer-stop.png">
-                                </div>
-                                <div class="explorer-window__button_name">
-                                    Stop
-                                </div>
-                            </div>
-                            <div class="explorer-window__button">
-                                <div class="explorer-window__button_icon">
-                                    <img src="./img/explorer-refresh.png">
-                                </div>
-                                <div class="explorer-window__button_name" style="color: black;">
-                                    Refresh
-                                </div>
-                            </div>
-                            <div class="explorer-window__button"></div>
-                        </div>
-                        <div class="explorer__logo">
-                            <img src="./img/explorer-logo.png">
-                        </div>
-                    </div>
-                    <div class="explorer__adress">
-                        <div class="explorer__separator lower"></div>
-                        <div class="explorer__separator lower"></div>
-                        <div class="explorer__adress-name">Adress</div>
-                        <div class="explorer__adress_line">https://portfolio.com</div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="window__workspace">
-                <div class="portfolio__container">
-
-                </div>
             </div>
         </div>
-
-
-        <div class="window about-window hidden">
-            <div class="window__wrapper">
-                <div class="window__header">
-                    <div class="window__header-icon">
-                        <img src="img/txt-icon.png">
-                    </div>
-                    <div class="window__header-name">
-                        About me.txt - Notepad
-                    </div>
-                    <div class="window__header-control">
-                        <button class="window__header-control-button hide-button"></button>
-                        <button class="window__header-control-button size-button"></button>
-                        <button class="window__header-control-button close-button"></button>
-                    </div>
-                </div>
-                <div class="window__toolbar">
-                    <div class="window__toolbar-button"><u>F</u>ile</div>
-                    <div class="window__toolbar-button"><u>E</u>dit</div>
-                    <div class="window__toolbar-button"><u>S</u>earch</div>
-                    <div class="window__toolbar-button"><u>H</u>elp</div>
-                </div>
-                <div class="window__workspace">
-                    Hello!<br>
-                    I'm Aleksei Musin and I'll be glad to help you with your website!
-                </div>
-            </div>
-        </div>
-
-        <div class="start-menu hidden">
-
-        </div>
-
     </main>
     <footer class="footer">
         <div class="bottom-bar">

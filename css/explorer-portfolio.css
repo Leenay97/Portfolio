@@ -1,0 +1,26 @@
+body {
+  min-width: 320px;
+  font-family: sans-serif;  
+  margin: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+.fixed-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    width: 100%;
+    background: linear-gradient(180deg,#ffffff00,#ffffff), linear-gradient(90deg,  #3ddddd44, #ffffff);
+                
+}
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    align-items: center;
+    font-size: 18px;
+}
