@@ -4,6 +4,9 @@ body {
     width: 320px;
     overflow: hidden;
     box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 div {
     box-sizing: border-box;
