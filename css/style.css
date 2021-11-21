@@ -279,12 +279,12 @@ a {
 
 .minesweeper-window {
     overflow: hidden;
-    height: 400px;
-    width: 320px;
+    height: 380px;
+    width: 290px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-160px, -200px);
+    transform: translate(-145px, -140px);
     background-color: #fff;
 }
 .minesweeper-window::-webkit-scrollbar {

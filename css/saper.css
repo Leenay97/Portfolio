@@ -1,19 +1,40 @@
-body {
+@font-face {
+    font-family: 'MS Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/khand-v9-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/w95fa.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/w95fa.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/W95FARegular.ttf') format('truetype'); /* Safari, Android, iOS */
+  }
+  @font-face {
+    font-family: 'DS-Digital';
+    src:url('../fonts/DS-Digital.ttf.woff') format('woff'),
+        url('../fonts/DS-Digital.ttf.svg#DS-Digital') format('svg'),
+        url('../fonts/DS-Digital.ttf.eot'),
+        url('../fonts/DS-Digital.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    height: 400px;
-    width: 320px;
+    padding: 0;
+}
+body {
+    font-family: 'MS Sans';
+    margin: 0;
     overflow: hidden;
     box-sizing: border-box;
     position: absolute;
     top: 0;
     left: 0;
 }
-div {
-    box-sizing: border-box;
-}
 .game__wrapper {
-    height: 400px;
-    width: 320px;
+    height: 380px;
+    width: 290px;
     background-color: #c3c3c3;
     border-top: 1px solid #ffffffaa;
     border-left: 1px solid #ffffffaa;
@@ -22,7 +43,7 @@ div {
     padding: 2px;
     overflow: hidden;
 }
-.game__header {
+.game__name {
     width: 100%;
     height: 25px;
     min-height: 25px;
@@ -35,17 +56,75 @@ div {
     border-collapse: collapse;
     color: #fff;
 }
-.game__toolbar {
+.game__toolbar { 
+    display: flex;
     height: 45px;
-    width: 100%;
+    width: 278px;
+    height: 55px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border-top: 4px solid #00000044;
+    border-left: 4px solid #00000044;
+    border-right: 4px solid #ffffffaa;
+    border-bottom: 4px solid #ffffffaa;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'DS-Digital';
+    color: red;
+    font-size: 32px;
+    font-weight: 500;
+}
+.game__counter {
+    height: 38px;
+    width: 60px;
+    background-color:black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1px;
+    border-top: 2px solid #00000044;
+    border-left: 2px solid #00000044;
+    border-right: 2px solid #b4b2b2aa;
+    border-bottom: 2px solid #ffffffaa;
+}
+.game__counter span{
+    float: right;
+    
+}
+.game__face {
+    height: 30px;
+    width: 30px;
+    background-color:black;
+}
+
+.game__time {
+    height: 38px;
+    width: 60px;
+    background-color:black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1px;
+    border-top: 2px solid #00000044;
+    border-left: 2px solid #00000044;
+    border-right: 2px solid #ffffffaa;
+    border-bottom: 2px solid #ffffffaa;
+}
+.digit {
+    background-image: url('../img/digits.png');
+    height: 34px;
+    width: 17px;
+    background-repeat: no-repeat;
+    background-position-x: -153px;
 }
 .game__field {
     display: grid;
+    position: absolute;
+    bottom: 10px;
+    left: 6px;
+    right: 6px;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    max-height: 306px;
-    max-width: 306px;
-    margin: 0 auto;
+    max-height: 278px;
+    max-width: 278px;
     border-top: 4px solid #00000044;
     border-left: 4px solid #00000044;
     border-right: 4px solid #ffffffaa;
@@ -53,8 +132,8 @@ div {
 }
 .game__field-cell {
     box-sizing: border-box;
-    height: 32px;
-    width: 32px;
+    height: 30px;
+    width: 30px;
     border-top: 4px solid #ffffffaa;
     border-left: 4px solid #ffffffaa;
     border-right: 4px solid #00000044;
@@ -68,9 +147,9 @@ div {
     border-bottom: 3px solid #00000044;
 }
 .active-cell, .active-cell:hover {
-    border: 1px solid #00000044;
-    height: 33px;
-    width: 33px;
+    border: 1px solid #00000022;
+    height: 30px;
+    width: 30px;
     border-collapse:collapse;
 }
 

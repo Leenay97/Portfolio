@@ -1,5 +1,6 @@
 $(function () {
     var k = 1;
+    var time = 0;
     console.log(k);
     var cells = [0];
     for (var i = 0; i < 81; i++) {
@@ -44,16 +45,80 @@ $(function () {
             };
             for (var i = 0; i < 81; i++) {
                 var cell = document.getElementById(i);
-                // if (cells[i] !== NaN) {
                 document.getElementById(i).innerHTML = cells[i];
-                // };
             };
             k = 0;
-        }else{
-            return false;
+            setInterval(function(){
+                ++time;
+                if (time%10 == 1){
+                    $('.time3').css('background-position-x', '0px');
+                } else if (time%10 == 2){
+                    $('.time3').css('background-position-x', '-17px');
+                } else if (time%10 == 3){
+                    $('.time3').css('background-position-x', '-34px');
+                } else if (time%10 == 4){
+                    $('.time3').css('background-position-x', '-51px');
+                } else if (time%10 == 5){
+                    $('.time3').css('background-position-x', '-68px');
+                } else if (time%10 == 6){
+                    $('.time3').css('background-position-x', '-85px');
+                } else if (time%10 == 7){
+                    $('.time3').css('background-position-x', '-102px');
+                } else if (time%10 == 8){
+                    $('.time3').css('background-position-x', '-119px');
+                } else if (time%10 == 9){
+                    $('.time3').css('background-position-x', '-136px');
+                } else if (time%10 == 0){
+                    $('.time3').css('background-position-x', '-153px');
+                };
+                if (Math.floor((time / 10) % 10) == 1){
+                    $('.time2').css('background-position-x', '0px');
+                } else if (Math.floor((time / 10) % 10) == 2){
+                    $('.time2').css('background-position-x', '-17px');
+                } else if (Math.floor((time / 10) % 10) == 3){
+                    $('.time2').css('background-position-x', '-34px');
+                } else if (Math.floor((time / 10) % 10) == 4){
+                    $('.time2').css('background-position-x', '-51px');
+                } else if (Math.floor((time / 10) % 10) == 5){
+                    $('.time2').css('background-position-x', '-68px');
+                } else if (Math.floor((time / 10) % 10) == 6){
+                    $('.time2').css('background-position-x', '-85px');
+                } else if (Math.floor((time / 10) % 10) == 7){
+                    $('.time2').css('background-position-x', '-102px');
+                } else if (Math.floor((time / 10) % 10) == 8){
+                    $('.time2').css('background-position-x', '-119px');
+                } else if (Math.floor((time / 10) % 10) == 9){
+                    $('.time2').css('background-position-x', '-136px');
+                } else if (Math.floor((time / 10) % 10) == 0){
+                    $('.time2').css('background-position-x', '-153px');
+                };
+                if (Math.floor((time / 100) % 10) == 1){
+                    $('.time1').css('background-position-x', '0px');
+                } else if (Math.floor((time / 100) % 10) == 2){
+                    $('.time1').css('background-position-x', '-17px');
+                } else if (Math.floor((time / 100) % 10) == 3){
+                    $('.time1').css('background-position-x', '-34px');
+                } else if (Math.floor((time / 100) % 10) == 4){
+                    $('.time1').css('background-position-x', '-51px');
+                } else if (Math.floor((time / 100) % 10) == 5){
+                    $('.time1').css('background-position-x', '-68px');
+                } else if (Math.floor((time / 100) % 10) == 6){
+                    $('.time1').css('background-position-x', '-85px');
+                } else if (Math.floor((time / 100) % 10) == 7){
+                    $('.time1').css('background-position-x', '-102px');
+                } else if (Math.floor((time / 100) % 10) == 8){
+                    $('.time1').css('background-position-x', '-119px');
+                } else if (Math.floor((time / 100) % 10) == 9){
+                    $('.time1').css('background-position-x', '-136px');
+                } else if (Math.floor((time / 100) % 10) == 0){
+                    $('.time1').css('background-position-x', '-153px');
+                };
+            }, 1000);
+            
+            
         };
-        console.log(k);
     });
+    
     $(function () {
         $('.game__field-cell').on('click', function () {
             $(this).addClass('active-cell');
