@@ -283,7 +283,7 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-200px, -160px);
+    transform: translate(-160px, -200px);
     background-color: #fff;
 }
 .minesweeper-window::-webkit-scrollbar {
