@@ -276,7 +276,20 @@ a {
     color: #000;
 }
 
-
+.minesweeper-window {
+    overflow: hidden;
+    height: 400px;
+    width: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-200px, -160px);
+    background-color: #fff;
+}
+.minesweeper-window::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 
 .label {
     position: absolute;

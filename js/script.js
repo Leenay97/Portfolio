@@ -67,6 +67,10 @@ $(function () {
         layerAdd('about');
         front('about');
     });
+    $('.minesweeper-icon').on('click', function () {
+        $('.minesweeper').removeClass('hidden');
+        front('minesweeper');
+    });
 
     setInterval(function(){
     var date = new Date;

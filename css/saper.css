@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    height: 400px;
+    width: 320px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+div {
+    box-sizing: border-box;
+}
+.game__wrapper {
+    height: 400px;
+    width: 320px;
+    background-color: #c3c3c3;
+    border-top: 1px solid #ffffffaa;
+    border-left: 1px solid #ffffffaa;
+    border-right: 1px solid #00000044;
+    border-bottom: 1px solid #00000044;
+    padding: 2px;
+    overflow: hidden;
+}
+.game__header {
+    width: 100%;
+    height: 25px;
+    min-height: 25px;
+    background: #000082;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    /* border: 2px solid #fff; */
+    border-collapse: collapse;
+    color: #fff;
+}
+.game__toolbar {
+    height: 45px;
+    width: 100%;
+}
+.game__field {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    max-height: 306px;
+    max-width: 306px;
+    margin: 0 auto;
+    border-top: 4px solid #00000044;
+    border-left: 4px solid #00000044;
+    border-right: 4px solid #ffffffaa;
+    border-bottom: 4px solid #ffffffaa;
+}
+.game__field-cell {
+    box-sizing: border-box;
+    height: 32px;
+    width: 32px;
+    border-top: 4px solid #ffffffaa;
+    border-left: 4px solid #ffffffaa;
+    border-right: 4px solid #00000044;
+    border-bottom: 4px solid #00000044;
+}
+
+.game__field-cell:hover {
+    border-top: 3px solid #ffffffaa;
+    border-left: 3px solid #ffffffaa;
+    border-right: 3px solid #00000044;
+    border-bottom: 3px solid #00000044;
+}
+.active-cell, .active-cell:hover {
+    border: 1px solid #00000044;
+    height: 33px;
+    width: 33px;
+    border-collapse:collapse;
+}
+
+.bomb {
+    background-color: #000;
+}
