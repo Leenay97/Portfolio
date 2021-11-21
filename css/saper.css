@@ -91,9 +91,12 @@ body {
     
 }
 .game__face {
-    height: 30px;
-    width: 30px;
-    background-color:black;
+    height: 34px;
+    width: 34px;
+    border-top: 4px solid #ffffffaa;
+    border-left: 4px solid #ffffffaa;
+    border-right: 4px solid #00000044;
+    border-bottom: 4px solid #00000044;
 }
 
 .game__time {
@@ -114,6 +117,17 @@ body {
     width: 17px;
     background-repeat: no-repeat;
     background-position-x: -153px;
+}
+.game__flag-button {
+    height: 34px;
+    width: 34px;
+    border-top: 4px solid #ffffffaa;
+    border-left: 4px solid #ffffffaa;
+    border-right: 4px solid #00000044;
+    border-bottom: 4px solid #00000044;
+    background-image: url('../img/flag.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .game__field {
     display: grid;
@@ -138,6 +152,7 @@ body {
     border-left: 4px solid #ffffffaa;
     border-right: 4px solid #00000044;
     border-bottom: 4px solid #00000044;
+    background-position: center
 }
 
 .game__field-cell:hover {
@@ -147,7 +162,10 @@ body {
     border-bottom: 3px solid #00000044;
 }
 .active-cell, .active-cell:hover {
-    border: 1px solid #00000022;
+    border-top: 1px solid #00000044;
+    border-left: 1px solid #00000044;
+    border-right: 0;
+    border-bottom: 0;
     height: 30px;
     width: 30px;
     border-collapse:collapse;
@@ -155,4 +173,24 @@ body {
 
 .bomb {
     background-color: #000;
+}
+.mine1 {
+    background-image: url(../img/mine1.png);
+    background-repeat: no-repeat;
+}
+.mine2 {
+    background-image: url(../img/mine2.png);
+    background-repeat: no-repeat;
+}
+.mine3 {
+    background-image: url(../img/mine3.png);
+    background-repeat: no-repeat;
+}
+.mine4 {
+    background-image: url(../img/mine4.png);
+    background-repeat: no-repeat;
+}
+.mine5 {
+    background-image: url(../img/mine5.png);
+    background-repeat: no-repeat;
 }

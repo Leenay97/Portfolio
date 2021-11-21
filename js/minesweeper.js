@@ -45,7 +45,15 @@ $(function () {
             };
             for (var i = 0; i < 81; i++) {
                 var cell = document.getElementById(i);
-                document.getElementById(i).innerHTML = cells[i];
+                if (cells[i] == 1){
+                    $(cell).addClass('mine1');
+                } else if (cells[i] == 2){
+                    $(cell).addClass('mine2');
+                } else if (cells[i] == 3){
+                    $(cell).addClass('mine3');
+                } else if (cells[i] == 4){
+                    $(cell).addClass('mine4');
+                }
             };
             k = 0;
             setInterval(function(){
