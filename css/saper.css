@@ -1,13 +1,12 @@
-@font-face {
+/*@font-face {
     font-family: 'MS Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/khand-v9-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/khand-v9-latin-regular.eot');
     src: local(''),
-         url('../fonts/w95fa.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/w95fa.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/W95FARegular.ttf') format('truetype'); /* Safari, Android, iOS */
-  }
+         url('../fonts/w95fa.woff2') format('woff2'), 
+         url('../fonts/w95fa.woff') format('woff'), 
+         url('../fonts/W95FARegular.ttf') format('truetype');
   @font-face {
     font-family: 'DS-Digital';
     src:url('../fonts/DS-Digital.ttf.woff') format('woff'),
@@ -17,7 +16,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -148,28 +147,17 @@ body {
     box-sizing: border-box;
     height: 30px;
     width: 30px;
-    border-top: 4px solid #ffffffaa;
-    border-left: 4px solid #ffffffaa;
-    border-right: 4px solid #00000044;
-    border-bottom: 4px solid #00000044;
-    background-position: center
+    border-top: 1px solid #00000044;
+    border-left: 1px solid #00000044;
+    background-position: center;
 }
 
-.game__field-cell:hover {
+/* .game__field-cell:hover {
     border-top: 3px solid #ffffffaa;
     border-left: 3px solid #ffffffaa;
     border-right: 3px solid #00000044;
     border-bottom: 3px solid #00000044;
-}
-.active-cell, .active-cell:hover {
-    border-top: 1px solid #00000044;
-    border-left: 1px solid #00000044;
-    border-right: 0;
-    border-bottom: 0;
-    height: 30px;
-    width: 30px;
-    border-collapse:collapse;
-}
+} */
 
 .bomb {
     background-color: #000;
@@ -193,4 +181,20 @@ body {
 .mine5 {
     background-image: url(../img/mine5.png);
     background-repeat: no-repeat;
+}
+
+.closed-cell {
+    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    border-top: 4px solid #ffffffaa;
+    border-left: 4px solid #ffffffaa;
+    border-right: 4px solid #00000044;
+    border-bottom: 4px solid #00000044;
+    background-position: center;
+    background-color: #c3c3c3;
+    background-image: none;
+    height: 30px;
+    width: 30px;
+    border-collapse:collapse;
 }
