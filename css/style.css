@@ -35,8 +35,11 @@ a {
     text-decoration: none;
     color: black;
 }
-.hidden {
+.hide {
     display: none;
+}
+.show {
+    display: block;
 }
 .desktop {
     position: fixed;
@@ -222,6 +225,11 @@ a {
     background: #c3c3c3 url('../img/size-button.png') center;
     background-size: contain;
 }
+.size-button__active {
+    background: #c3c3c3 url('../img/size-button-active.png');
+    background-size: 16px;
+}
+
 .hide-button {
     background: #c3c3c3 url('../img/hide-button.png') center;
     background-size: contain;

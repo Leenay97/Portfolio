@@ -1,154 +1,122 @@
-$(function () {
+'use strict'
 
-    var windowClose = function (name) {
-        var layerName = '.' + name + '-layer';
-        var trigger = document.querySelector(layerName);
-        console.log(trigger);
-        $(trigger).addClass('hidden');
+document.addEventListener('DOMContentLoaded', () => {
+
+    let showWindow = function (name) {
+        let windowName = document.querySelector(`.${name}-window`);
+        console.log(windowName);
+        hideAll();
+        windowName.classList.remove('hide');
+        windowName.classList.add('show');
     };
 
-    var layerClick = function (name) {
-        var windowName = '.' + name + '-window';
-        var layerName = '.' + name + '-layer';
-        var trigger = document.querySelector(windowName);
-        var layer = document.querySelector(layerName);
-        console.log(trigger);
-        $(trigger).toggleClass('hidden');
-        $(layer).toggleClass('active');
+    let hideWindow = function (name) {
+        let windowName = document.querySelector(`.${name}-window`);
+        console.log(windowName);
+        windowName.classList.remove('show');
+        windowName.classList.add('hide');
     };
 
-    var windowHide = function (name) {
-        var layerName = '.' + name + '-layer';
-        var trigger = document.querySelector(layerName);
-        $(trigger).removeClass('hidden');
-    };
+    function hideAll() {
+        let windowName = document.querySelectorAll(`.window`);
+        windowName.forEach((item) => {
+            item.classList.remove('show');
+            item.classList.add('hide');
+        });
+    }
 
-    var layerAdd = function (name) {
-        var className = '.' + name + '-layer';
-        var layer = document.querySelector(className);
-        $('.bottom-container').append(layer);
-        $(layer).removeClass('hidden');
-    };
+    function showLayer(name) {
+        let layer = document.querySelector(`.${name}-layer`);
+        layer.classList.add('show');
+        layer.classList.remove('hide');
+    }
 
-    var front = function (name) {
-        var className = '.' + name + '-window';
-        var layerName = '.' + name + '-layer';
-        $('.window').css('z-index', 1);
-        $(className).css('z-index', 2);
-    };
-
-    $('.close-button').on('click', function () {
-        $(this).parents('.window').addClass('hidden');
-    });
-    $('.size-button').on('click', function () {
-        $(this).toggleClass('size-button-active')
-        $(this).parents('.window').toggleClass('fullscreen');
-    });
-    $('.hide-button').on('click', function () {
-        $(this).parents('.window').addClass('hidden');
-    });
-
-    $('.projects-icon').on('click', function () {
-        $('.projects-window').removeClass('hidden');
-        layerAdd('projects');
-        front('projects');
-    });
-    $('.skills-icon').on('click', function () {
-        $('.skills-window').removeClass('hidden');
-        layerAdd('skills');
-        front('skills');
-    });
-    $('.explorer-icon').on('click', function () {
-        $('.explorer-window').removeClass('hidden');
-        front('explorer');
-    });
-    $('.about-icon').on('click', function () {
-        $('.about-window').removeClass('hidden');
-        layerAdd('about');
-        front('about');
-    });
-    $('.minesweeper-icon').on('click', function () {
-        $('.minesweeper').removeClass('hidden');
-        front('minesweeper');
-    });
-
-    setInterval(function(){
-    var date = new Date;
-    var minutes = date.getMinutes();
-    var hours = date.getHours();
-    var day = date.getDate();
-    var month = date.getMonth();
-    var year = date.getFullYear();
-    if (date.getMinutes() < 10) {
-        minutes = '0' + minutes;
-    };
-    if (date.getHours() < 10) {
-        hours = '0' + hours;
-    };
-    if (date.getMonth() < 10) {
-        month = '0' + month;
-    };
-    if (date.getDate() < 10) {
-        day = '0' + day;
-    };
-    month++
-    dateTime = hours + ':' + minutes;
-    document.querySelector('.bottom-bar__time').innerHTML = dateTime;
-    
-    }, 300);
+    function hideLayer(name) {
+        let layer = document.querySelector(`.${name}-layer`);
+        layer.classList.add('hide');
+        layer.classList.remove('show');
+    }
 
 
-    $('.bottom-bar__start-button').on('click', function () {
-        $('.start-menu').toggleClass('hidden');
-        $(this).toggleClass('active');
-    });
-    $('.desktop').on('click', function () {
-        $('.start-menu').addClass('hidden');
-        $('.bottom-bar__start-button').removeClass('active');
-    });
-    $('.window').on('click', function () {
-        $('.start-menu').addClass('hidden');
+    //Клик на иконки
+    let icons = document.querySelectorAll('.desktop__icon');
+
+    icons.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            let targetName = item.classList[1].split('-')[0];
+            showWindow(targetName);
+            console.log(targetName);
+            showLayer(targetName);
+            let allLayers = document.querySelectorAll('.bottom-layer');
+            allLayers.forEach((item)=> {
+                item.style.order = 0;
+            })
+            document.querySelector(`.${targetName}-layer`).style.order = 1;
+        });
     });
 
+    //Крестик
+    let closeButtons = document.querySelectorAll('.close-button');
+    console.log(closeButtons);
 
-    $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
-        windowHide('projects');
-        $('.projects-layer').removeClass('active');
-    });
-    $('.projects-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
-        windowClose('projects');
-        $('.projects-layer').addClass('active');
-    });
-    $('.projects-layer').on('click', function () {
-        layerClick('projects');
-        front('projects');
-    });
-
-    $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
-        windowHide('about');
-        $('.about-layer').removeClass('active');
-    });
-    $('.about-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
-        windowClose('about');
-        $('.about-layer').addClass('active');
-    });
-    $('.about-layer').on('click', function () {
-        layerClick('about');
-        front('about');
+    closeButtons.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            console.log(e.target);
+            let target = e.target;
+            let parentWindow = target.parentElement.parentElement.parentElement.parentElement;
+            let targetName = parentWindow.classList[1].split('-')[0];
+            parentWindow.classList.add('hide');
+            parentWindow.classList.remove('show');
+            hideLayer(targetName);
+        });
     });
 
-
-    $('.skills-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.hide-button').on('click', function () {
-        windowHide('skills');
-        $('.skills-layer').removeClass('active');
-    });
-    $('.skills-window').children('.window__wrapper').children('.window__header').children('.window__header-control').children('.close-button').on('click', function () {
-        windowClose('skills');
-        $('.skills-layer').addClass('active');
-    });
-    $('.skills-layer').on('click', function () {
-        layerClick('skills');
-        front('skills');
+    //Fullscreen
+    let fullScreenButtons = document.querySelectorAll('.size-button');
+    fullScreenButtons.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            console.log(e.target);
+            let target = e.target;
+            let parentWindow = target.parentElement.parentElement.parentElement.parentElement;
+            parentWindow.classList.toggle('fullscreen');
+            target.classList.toggle('size-button__active');
+        });
     });
 
+    //Hidebuttons
+    let hideButtons = document.querySelectorAll('.hide-button');
+    hideButtons.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            console.log(e.target);
+            let parentWindow = e.target.parentElement.parentElement.parentElement.parentElement;
+            parentWindow.classList.add('hide');
+            parentWindow.classList.remove('show');
+            let layer = document.querySelector(`.${parentWindow.classList[1].split('-')[0]}-layer`);
+            layer.classList.remove('active');
+        });
+    });
+
+    //LayerClick
+    let layers = document.querySelectorAll('.bottom-layer');
+    layers.forEach((item, i) => {
+        item.addEventListener('click', (e) => {
+            let layerName = item.classList[1].split('-')[0];
+            let windowName = document.querySelector(`.${layerName}-window`);
+            windowName.classList.toggle('hide');
+            windowName.classList.toggle('show');
+            // item.classList.remove('active');
+            // if (windowName.classList.contains('show')) {
+            //     item.classList.add('active');
+            // } else {
+            //     item.classList.remove('active');
+            // }
+        });
+    })
+
+    //Time
+    let time = new Date();
+    setInterval(()=>{
+    let bottomTime = `${time.getHours()}:${time.getMinutes()}`;
+    document.querySelector('.bottom-bar__time').innerHTML = bottomTime;
+    })
 });

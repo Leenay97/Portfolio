@@ -31,11 +31,11 @@
     font-size: 14px;
 
 }
-.bottom-bar__start-button:hover {
+/* .bottom-bar__start-button:hover {
     transform: translate(0.5px, 0.5px);
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
-}
+} */
 .bottom-bar__start-button:active {
     box-shadow: none;
     transform: translate(1px, 1px);
@@ -84,7 +84,7 @@
 }
 .bottom-layer {
     width: 130px;
-    min-width: 130px;
+    min-width: 100px;
     height: 30px;
     margin-right: 5px;
     padding: 0 0 0 33px;
@@ -103,11 +103,11 @@
     background-size: 20px;
     
 }
-.bottom-layer:hover {
+/* .bottom-layer:hover {
     border-bottom: 0.5px solid #000;
     border-right: 0.5px solid #000;
     transform: translate(0.5px, 0.5px);
-}
+} */
 .bottom-layer__text {
     padding: 0 10px 0 0;
     overflow: hidden;
@@ -142,3 +142,4 @@
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
 }
+
