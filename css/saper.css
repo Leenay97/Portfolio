@@ -22,8 +22,12 @@
     margin: 0;
     padding: 0;
 }
+html {
+    max-width: 290px;
+}
 body {
     font-family: 'MS Sans';
+    max-width: 290px;
     margin: 0;
     overflow: hidden;
     box-sizing: border-box;

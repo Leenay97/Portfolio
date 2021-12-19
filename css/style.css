@@ -100,6 +100,7 @@ a {
     border: 1px solid #c3c3c3;
     box-shadow: #00000044 2px 2px 2px;
 }
+
 .window__wrapper {
     display: flex;
     flex-direction: column;
@@ -285,10 +286,15 @@ a {
     color: #000;
 }
 
+.minesweeper {
+    width: 290px;
+    height: 380px;
+}
 .minesweeper-window {
     overflow: hidden;
     height: 380px;
-    width: 290px;
+    min-width: 290px;
+    max-width: 290px;
     position: absolute;
     top: 50%;
     left: 50%;
