@@ -24,22 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     nullCells();
 
-    //First Cell click event
-    cells.forEach((item, index) => {
-        item.addEventListener('click', (e) => {
-            if (firstClickIndex == 0) {
-                firstClick = e.target;
-                firstClickIndex = 1;
-            
+    //First click
+    let firstClickHandler = function (e) {
+        if (firstClickIndex == 0) {
+            firstClick = e.target;
+            firstClickIndex = 1;
+
+
             let row = Math.floor(e.target.id / 10);
             let col = e.target.id % 10;
-
-
+            clearInterval(timer);
+            startTimer();
             gameStart();
             openCells(row, col);
-            };
+        };
+    }
+    function firstCell() {
+        cells.forEach((item, index) => {
+            item.addEventListener('click', firstClickHandler);
         });
-    });
+    };
+    firstCell();
 
     //Arrange bombs
     let arrBombs = function () {
@@ -118,21 +123,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    //Lose
+    function gameLose() {
+        clearInterval(timer);
+        cells.forEach((item) => {
+            item.removeEventListener('click', firstClickHandler);
+            item.removeEventListener('click', cellClickHandler);
+            document.querySelector('.game__face').style.backgroundImage = 'url(../img/sad-face.png)';
+        });
+    };
+
     //Cell click
+    let cellClickHandler = function (e) {
+        let row = Math.floor(e.target.id / 10);
+        let col = e.target.id % 10;
+        if (e.target.classList.contains('bomb')) {
+            e.target.classList.add('bomb-active');
+            let closedBombs = document.querySelectorAll('.bomb');
+            closedBombs.forEach((item)=>{
+                item.classList.remove('closed-cell');
+            })
+            gameLose();
+        }
+
+        if (openCells(row, col) == false) return;
+        openCells(row, col);
+    }
     let cellClick = function (row, col) {
         cells.forEach((item, index) => {
-            item.addEventListener('click', (e) => {
-                let row = Math.floor(e.target.id / 10);
-                let col = e.target.id % 10;
-                if (openCells(row, col) == false) return;
-                openCells(row, col);
-            });
+            item.addEventListener('click', cellClickHandler);
         });
     };
 
     //Timer
-    let startTimer = function () {
-        let timerField = document.querySelector('.game__time');
+    function startTimer() {
         let timerDigit1 = document.querySelector('.time1');
         let timerDigit2 = document.querySelector('.time2');
         let timerDigit3 = document.querySelector('.time3');
@@ -150,12 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 digit1Back = 17;
                 digit2Back -= 17;
                 timerDigit2.style.backgroundPosition = digit2Back + 'px';
-                if (digit2Back == -153){
+                if (digit2Back == -153) {
                     digit2Back = 17;
                     digit3Back -= 17;
                     timerDigit1.style.backgroundPosition = digit3Back + 'px';
                 }
             }
+            console.log('time')
         }, 1000);
     }
 
@@ -166,11 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
         restartCells.forEach((item) => {
             item.className = 'game__field-cell closed-cell';
         });
+        firstClickIndex = 0;
         nullCells();
+        firstCell();
         gameStart();
     }
 
-    document.querySelector('.game__face').addEventListener('click', (e)=> {
+    document.querySelector('.game__face').addEventListener('click', (e) => {
+        document.querySelector('.game__face').style.backgroundImage = 'url(../img/happy-face.png)';
         gameRestart();
     })
 
@@ -178,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameStart = function () {
         arrBombs();
         bombCounter();
-        startTimer();
         cellClick();
     }
 

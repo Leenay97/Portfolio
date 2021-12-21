@@ -36,14 +36,9 @@ body {
     left: 0;
 }
 .game__wrapper {
-    height: 380px;
+    height: 355px;
     width: 290px;
     background-color: #c3c3c3;
-    border-top: 1px solid #ffffffaa;
-    border-left: 1px solid #ffffffaa;
-    border-right: 1px solid #00000044;
-    border-bottom: 1px solid #00000044;
-    padding: 2px;
     overflow: hidden;
 }
 .game__name {
@@ -96,10 +91,13 @@ body {
 .game__face {
     height: 34px;
     width: 34px;
-    border-top: 4px solid #ffffffaa;
-    border-left: 4px solid #ffffffaa;
-    border-right: 4px solid #00000044;
-    border-bottom: 4px solid #00000044;
+    border-top: 3px solid #ffffffaa;
+    border-left: 3px solid #ffffffaa;
+    border-right: 3px solid #00000044;
+    border-bottom: 3px solid #00000044;
+    background-image: url('../img/happy-face.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .game__time {
@@ -124,10 +122,10 @@ body {
 .game__flag-button {
     height: 34px;
     width: 34px;
-    border-top: 4px solid #ffffffaa;
-    border-left: 4px solid #ffffffaa;
-    border-right: 4px solid #00000044;
-    border-bottom: 4px solid #00000044;
+    border-top: 3px solid #ffffffaa;
+    border-left: 3px solid #ffffffaa;
+    border-right: 3px solid #00000044;
+    border-bottom: 3px solid #00000044;
     background-image: url('../img/flag.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -164,7 +162,13 @@ body {
 } */
 
 .bomb {
-    background-color: #000;
+    background-image: url(../img/bomb.png);
+    background-repeat: no-repeat;
+}
+.bomb-active {
+    background-image: url(../img/bomb-active.png);
+    background-repeat: no-repeat;
+    background-color: #ff0000;
 }
 .mine1 {
     background-image: url(../img/mine1.png);
@@ -186,15 +190,27 @@ body {
     background-image: url(../img/mine5.png);
     background-repeat: no-repeat;
 }
+.mine6 {
+    background-image: url(../img/mine6.png);
+    background-repeat: no-repeat;
+}
+.mine7 {
+    background-image: url(../img/mine7.png);
+    background-repeat: no-repeat;
+}
+.mine8 {
+    background-image: url(../img/mine8.png);
+    background-repeat: no-repeat;
+}
 
 .closed-cell {
     box-sizing: border-box;
     height: 30px;
     width: 30px;
-    border-top: 4px solid #ffffffaa;
-    border-left: 4px solid #ffffffaa;
-    border-right: 4px solid #00000044;
-    border-bottom: 4px solid #00000044;
+    border-top: 3px solid #ffffffaa;
+    border-left: 3px solid #ffffffaa;
+    border-right: 3px solid #00000044;
+    border-bottom: 3px solid #00000044;
     background-position: center;
     background-color: #c3c3c3;
     background-image: none;

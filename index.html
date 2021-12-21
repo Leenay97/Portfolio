@@ -36,8 +36,8 @@
                 <div class="desktop__icon about-icon"><img class="desktop__icon-image" src="img/txt-icon.png">
                     <div class="desktop__icon-name">About me.txt</div>
                 </div>
-                <div class="desktop__icon minesweeper-icon"><img class="desktop__icon-image" src="img/txt-icon.png">
-                    <div class="desktop__icon-name">Mineswapper</div>
+                <div class="desktop__icon minesweeper-icon"><img class="desktop__icon-image" src="img/minesweeper-icon.png">
+                    <div class="desktop__icon-name">Minesweeper</div>
                 </div>
             </div>
             <div class="window projects-window hide">
@@ -261,9 +261,21 @@
                 </div>
             </div>
             <div class="window minesweeper-window">
-                <iframe class="minesweeper" src="iframes/saper.html">
-
-                </iframe>
+                <div class="window__wrapper">
+                    <div class="window__header">
+                        <div class="window__header-icon">
+                            <img src="img/minesweeper-icon.png">
+                        </div>
+                        <div class="window__header-name">
+                            Minesweeper
+                        </div>
+                        <div class="window__header-control">
+                            <button class="window__header-control-button hide-button"></button>
+                            <button class="window__header-control-button close-button"></button>
+                        </div>
+                    </div>
+                    <iframe class="minesweeper" src="iframes/saper.html"></iframe>
+                </div>
             </div>
             <div class="start-menu hide">
 
@@ -290,6 +302,16 @@
                         About&nbsp;me.txt
                     </div>
                 </button>
+                <button class="bottom-layer explorer-layer hide">
+                    <div class="bottom-layer__text">
+                        Internet
+                    </div>
+                </button>
+                <button class="bottom-layer minesweeper-layer hide">
+                    <div class="bottom-layer__text">
+                        Minesweeper
+                    </div>
+                </button>
             </div>
             <div class="bottom-bar__separator bottom-bar__separator_left"></div>
             <div class="bottom-bar__time">
@@ -300,7 +322,7 @@
     </footer>
     <script src="js/jquery.js"></script>
     <script src="js/script.js"></script>
-    
+
 </body>
 
 </html>

@@ -126,6 +126,12 @@
 .skills-layer {
     background-image: url('../img/folder-icon.png');
 }
+.minesweeper-layer {
+    background-image: url('../img/minesweeper-icon.png');
+}
+.explorer-layer {
+    background-image: url('../img/explorer-icon.png');
+}
 
 
 
