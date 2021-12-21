@@ -98,6 +98,7 @@ body {
     background-image: url('../img/happy-face.png');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 22px;
 }
 
 .game__time {
@@ -217,4 +218,16 @@ body {
     height: 30px;
     width: 30px;
     border-collapse:collapse;
+}
+
+.game__flag-button-active {
+    border-top: 3px solid #00000044;
+    border-left: 3px solid #00000044;
+    border-right: 3px solid #ffffffaa;
+    border-bottom: 3px solid #ffffffaa;
+}
+
+.flagged-cell {
+    background-image: url('../img/flag.png');
+    background-repeat: no-repeat;
 }

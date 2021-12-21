@@ -1,15 +1,15 @@
 'use strict'
 document.addEventListener('DOMContentLoaded', () => {
-    let gameStopper = 0,
-        cellsArr = [],
-        stop = 0,
+    let cellsArr = [],
         bombs = 0,
         bombId = [],
         firstClickIndex = 0,
         firstClick,
         bombStopper = 0,
         cells = document.querySelectorAll('.game__field-cell'),
-        timer;
+        flagButton = document.querySelector('.game__flag-button'),
+        timer,
+        openCounter = 0;
     //Null cells
     let nullCells = function () {
         for (let i = 0; i < 9; i++) {
@@ -29,8 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (firstClickIndex == 0) {
             firstClick = e.target;
             firstClickIndex = 1;
-
-
             let row = Math.floor(e.target.id / 10);
             let col = e.target.id % 10;
             clearInterval(timer);
@@ -108,7 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!cell.classList.contains('closed-cell')) return;
         cell.classList.remove('closed-cell');
-
+        cell.classList.remove('flagged-cell');
+        openCounter++;
+        console.log(openCounter);
+        if (openCounter == 71) {
+            gameWin();
+        }
         if (cells[row][col] >= 100) return;
 
 
@@ -121,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+
+
     }
 
     //Lose
@@ -131,20 +136,44 @@ document.addEventListener('DOMContentLoaded', () => {
             item.removeEventListener('click', cellClickHandler);
             document.querySelector('.game__face').style.backgroundImage = 'url(../img/sad-face.png)';
         });
+        flagButton.classList.remove('game__flag-button-active');
     };
+
+    //Win
+    function gameWin() {
+        clearInterval(timer);
+        cells.forEach((item) => {
+            item.removeEventListener('click', firstClickHandler);
+            item.removeEventListener('click', cellClickHandler);
+            document.querySelector('.game__face').style.backgroundImage = 'url(../img/win-face.png)';
+        });
+        flagButton.classList.remove('game__flag-button-active')
+        openCounter = 0;
+    }
 
     //Cell click
     let cellClickHandler = function (e) {
         let row = Math.floor(e.target.id / 10);
         let col = e.target.id % 10;
+
+        if (flagButton.classList.contains('game__flag-button-active')) {
+            e.target.classList.toggle('flagged-cell');
+            return;
+        }
+
+        if (e.target.classList.contains('flagged-cell')) return;
+
         if (e.target.classList.contains('bomb')) {
             e.target.classList.add('bomb-active');
             let closedBombs = document.querySelectorAll('.bomb');
-            closedBombs.forEach((item)=>{
+            closedBombs.forEach((item) => {
                 item.classList.remove('closed-cell');
+                item.classList.remove('flagged-cell');
             })
             gameLose();
+            return;
         }
+        
 
         if (openCells(row, col) == false) return;
         openCells(row, col);
@@ -169,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
         timer = setInterval(function () {
             digit1Back -= 17;
             timerDigit3.style.backgroundPosition = digit1Back + 'px';
-            console.log(digit1Back);
             if (digit1Back == -153) {
                 digit1Back = 17;
                 digit2Back -= 17;
@@ -180,9 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     timerDigit1.style.backgroundPosition = digit3Back + 'px';
                 }
             }
-            console.log('time')
         }, 1000);
     }
+    //Flag
+    flagButton.addEventListener('click', (e) => {
+        e.target.classList.toggle('game__flag-button-active');
+    })
 
     //Restart
     function gameRestart() {
@@ -192,6 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = 'game__field-cell closed-cell';
         });
         firstClickIndex = 0;
+        openCounter = 0;
+        flagButton.classList.remove('game__flag-button-active')
         nullCells();
         firstCell();
         gameStart();
