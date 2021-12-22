@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cells = document.querySelectorAll('.game__field-cell'),
         flagButton = document.querySelector('.game__flag-button'),
         timer,
-        openCounter = 0;
+        openCounter = 0,
+        flagCounter = 10,
+        flagDigitPosition = ['-17px', '-153px'];
     //Null cells
     let nullCells = function () {
         for (let i = 0; i < 9; i++) {
@@ -28,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let firstClickHandler = function (e) {
         if (firstClickIndex == 0) {
             firstClick = e.target;
-            firstClickIndex = 1;
+            
             let row = Math.floor(e.target.id / 10);
             let col = e.target.id % 10;
             clearInterval(timer);
             startTimer();
             gameStart();
             openCells(row, col);
+            firstClickIndex = 1;
         };
     }
     function firstCell() {
@@ -123,9 +126,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 openCells(row + x, col + y);
             }
         }
+    }
 
+    //Flags number
+    function flagNumber() {
+        console.log(flagCounter)
+        if (flagCounter < 0) return;
+        let flagDigit2 = document.querySelector('.counter2');
+        let flagDigit3 = document.querySelector('.counter3');
+        if (flagCounter < 10) { 
+            flagDigitPosition[0] = '-153px';
+            
+        } else {
+            flagDigitPosition[0] = 0;
+        };
 
+        if (flagCounter == 0) {
+            flagDigitPosition[1] = '-153px';
 
+        } else {
+            flagDigitPosition[1] = -17 * ((flagCounter -1) % 10) + 'px';
+        };
+        flagDigit2.style.backgroundPosition = flagDigitPosition[0];
+        flagDigit3.style.backgroundPosition = flagDigitPosition[1];
     }
 
     //Lose
@@ -134,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cells.forEach((item) => {
             item.removeEventListener('click', firstClickHandler);
             item.removeEventListener('click', cellClickHandler);
+            item.removeEventListener('contextmenu', cellRightClickHandler);
             document.querySelector('.game__face').style.backgroundImage = 'url(../img/sad-face.png)';
         });
         flagButton.classList.remove('game__flag-button-active');
@@ -145,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cells.forEach((item) => {
             item.removeEventListener('click', firstClickHandler);
             item.removeEventListener('click', cellClickHandler);
+            item.removeEventListener('contextmenu', cellRightClickHandler);
             document.querySelector('.game__face').style.backgroundImage = 'url(../img/win-face.png)';
         });
         flagButton.classList.remove('game__flag-button-active')
@@ -155,13 +180,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let cellClickHandler = function (e) {
         let row = Math.floor(e.target.id / 10);
         let col = e.target.id % 10;
-
-        if (flagButton.classList.contains('game__flag-button-active')) {
-            e.target.classList.toggle('flagged-cell');
-            return;
+        if (flagButton.classList.contains('game__flag-button-active') && e.target.classList.contains('closed-cell')) {
+            if (e.target.classList.contains('flagged-cell')) {
+                e.target.classList.remove('flagged-cell');
+                flagCounter++;
+                flagNumber();
+                return;
+            } else {
+                e.target.classList.add('flagged-cell');
+                flagCounter--;
+                flagNumber();
+                return;
+            }
         }
-
         if (e.target.classList.contains('flagged-cell')) return;
+
 
         if (e.target.classList.contains('bomb')) {
             e.target.classList.add('bomb-active');
@@ -173,14 +206,33 @@ document.addEventListener('DOMContentLoaded', () => {
             gameLose();
             return;
         }
-        
+
 
         if (openCells(row, col) == false) return;
         openCells(row, col);
     }
+    let cellRightClickHandler = function (e) {
+            e.preventDefault();
+            if (firstClick.cell == 0) return;
+            if (!e.target.classList.contains('closed-cell')) return;
+            if (e.target.classList.contains('flagged-cell')) {
+                e.target.classList.remove('flagged-cell');
+                flagCounter++;
+                flagNumber();
+                return;
+            } else {
+                e.target.classList.add('flagged-cell');
+                flagCounter--;
+                flagNumber();
+                return;
+            };
+            return false;
+    }
+
     let cellClick = function (row, col) {
         cells.forEach((item, index) => {
             item.addEventListener('click', cellClickHandler);
+            item.addEventListener('contextmenu', cellRightClickHandler, false);
         });
     };
 
@@ -212,11 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //Flag
     flagButton.addEventListener('click', (e) => {
+        if (firstClickIndex == 0) return;
         e.target.classList.toggle('game__flag-button-active');
     })
 
     //Restart
     function gameRestart() {
+        clearInterval(timer);
+        startTimer();
         clearInterval(timer);
         let restartCells = document.querySelectorAll('.game__field-cell');
         restartCells.forEach((item) => {
@@ -224,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         firstClickIndex = 0;
         openCounter = 0;
+        flagCounter = 10;
         flagButton.classList.remove('game__flag-button-active')
         nullCells();
         firstCell();
@@ -237,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Start game 
     let gameStart = function () {
+        flagNumber();
         arrBombs();
         bombCounter();
         cellClick();

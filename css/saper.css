@@ -120,6 +120,9 @@ body {
     background-repeat: no-repeat;
     background-position-x: -153px;
 }
+.counter2 {
+    background-position: 0px;
+}
 .game__flag-button {
     height: 34px;
     width: 34px;
