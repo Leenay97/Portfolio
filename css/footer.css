@@ -1,3 +1,6 @@
+footer {
+    position: relative;
+}
 .bottom-bar {
     display: flex;
     align-items: center;
@@ -84,7 +87,7 @@
 }
 .bottom-layer {
     width: 130px;
-    min-width: 100px;
+    min-width: 20px;
     height: 30px;
     margin-right: 5px;
     padding: 0 0 0 33px;
@@ -148,4 +151,3 @@
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
 }
-

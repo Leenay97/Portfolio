@@ -114,9 +114,50 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     //Time
-    let time = new Date();
+    
     setInterval(()=>{
-    let bottomTime = `${time.getHours()}:${time.getMinutes()}`;
+    let time = new Date();
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    if (hours < 10) hours = '0' + hours;
+    if (minutes < 10) minutes = '0' + minutes;
+    let bottomTime = `${hours}:${minutes}`;
     document.querySelector('.bottom-bar__time').innerHTML = bottomTime;
-    })
+    console.log('a')
+    }, 400);
+
+    //Start Button 
+    let startMenu = document.querySelector('.start-menu');
+    let startButton = document.querySelector('.bottom-bar__start-button');
+    console.log(startButton)
+    startButton.addEventListener('click', (e) => {
+        startMenu.classList.toggle('hide');
+    });
+
+    //Hide start menu
+    document.body.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('start-list') 
+        && !e.target.classList.contains('bottom-bar__start-button')
+        && !e.target.classList.contains('start-list_point') 
+        && !e.target.classList.contains('start-menu')
+        && !e.target.classList.contains('start-icon')) {
+            startMenu.classList.add('hide');
+        }
+    });
+
+    //Start menu points
+    let startPoint = document.querySelectorAll('.start-list_point');
+    startPoint.forEach( (item, i) => {
+        item.addEventListener('click', (e) => {
+            let targetName = item.classList[1].split('-')[0];
+            showWindow(targetName);
+            console.log(targetName);
+            showLayer(targetName);
+            let allLayers = document.querySelectorAll('.bottom-layer');
+            allLayers.forEach((item)=> {
+                item.style.order = 0;
+            });
+            startMenu.classList.add('hide');
+        });
+    });
 });
