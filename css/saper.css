@@ -234,3 +234,7 @@ body {
     background-image: url('../img/flag.png');
     background-repeat: no-repeat;
 }
+
+@media screen and (max-height: 430px) {
+
+}

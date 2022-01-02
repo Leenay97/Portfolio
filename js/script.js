@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
     icons.forEach((item, index) => {
         item.addEventListener('click', (e) => {
             let targetName = item.classList[1].split('-')[0];
+            if (e.target.classList.contains('minesweeper-icon')
+                || e.target.parentElement.classList.contains('minesweeper-icon')
+                && window.screen.height <= 430){
+                alert('turn your phone');
+            } else {
             showWindow(targetName);
             console.log(targetName);
             showLayer(targetName);
@@ -52,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.order = 0;
             })
             document.querySelector(`.${targetName}-layer`).style.order = 1;
+        }
         });
     });
 
